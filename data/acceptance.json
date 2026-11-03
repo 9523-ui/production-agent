@@ -1,0 +1,614 @@
+{
+  "passed": 92,
+  "failed": 0,
+  "total": 92,
+  "groups": {
+    "A1": {
+      "passed": 4,
+      "failed": 0
+    },
+    "A2": {
+      "passed": 7,
+      "failed": 0
+    },
+    "A3": {
+      "passed": 3,
+      "failed": 0
+    },
+    "A4": {
+      "passed": 4,
+      "failed": 0
+    },
+    "A5": {
+      "passed": 2,
+      "failed": 0
+    },
+    "A6": {
+      "passed": 4,
+      "failed": 0
+    },
+    "A7": {
+      "passed": 4,
+      "failed": 0
+    },
+    "A8": {
+      "passed": 9,
+      "failed": 0
+    },
+    "A9": {
+      "passed": 9,
+      "failed": 0
+    },
+    "A10": {
+      "passed": 10,
+      "failed": 0
+    },
+    "A11": {
+      "passed": 10,
+      "failed": 0
+    },
+    "A12": {
+      "passed": 13,
+      "failed": 0
+    },
+    "A13": {
+      "passed": 13,
+      "failed": 0
+    }
+  },
+  "checks": [
+    {
+      "group": "A1",
+      "name": "deepseek 缺 Key 时 fail-fast",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A1",
+      "name": "prod 缺 AUTH_TOKEN 时拒绝启动",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A1",
+      "name": "配置快照不含真值",
+      "ok": true,
+      "detail": "api_key=***configured***, auth_token=***configured***"
+    },
+    {
+      "group": "A1",
+      "name": "日志 formatter 自动打码",
+      "ok": true,
+      "detail": "key=sk-***"
+    },
+    {
+      "group": "A2",
+      "name": "run 落库且状态完整",
+      "ok": true,
+      "detail": "run_id=533d770cb1ea4c72, status=ok"
+    },
+    {
+      "group": "A2",
+      "name": "工具步骤落库条数一致",
+      "ok": true,
+      "detail": "steps=1, trace=1"
+    },
+    {
+      "group": "A2",
+      "name": "审计字段齐全",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A2",
+      "name": "trace_id 非空且回传",
+      "ok": true,
+      "detail": "d424681941b1436f"
+    },
+    {
+      "group": "A2",
+      "name": "相邻请求 trace_id 互不串用",
+      "ok": true,
+      "detail": "d424681941b1436f vs cf5cf15bd1654a4f"
+    },
+    {
+      "group": "A2",
+      "name": "/metrics 输出 Prometheus 文本",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A2",
+      "name": "输出脱敏生效",
+      "ok": true,
+      "detail": "sk-*** 和 138********"
+    },
+    {
+      "group": "A3",
+      "name": "两次瞬时失败后自愈",
+      "ok": true,
+      "detail": "status=ok, reply=恢复成功"
+    },
+    {
+      "group": "A3",
+      "name": "上游恰好被调用 3 次",
+      "ok": true,
+      "detail": "calls=3"
+    },
+    {
+      "group": "A3",
+      "name": "熔断未误开",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A4",
+      "name": "连续失败触发降级",
+      "ok": true,
+      "detail": "status=degraded, code=TransientError"
+    },
+    {
+      "group": "A4",
+      "name": "熔断状态为 open",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A4",
+      "name": "熔断期间不再打上游",
+      "ok": true,
+      "detail": "calls 3 -> 3"
+    },
+    {
+      "group": "A4",
+      "name": "二次请求直接降级",
+      "ok": true,
+      "detail": "code=CircuitOpen"
+    },
+    {
+      "group": "A5",
+      "name": "超时被识别并降级",
+      "ok": true,
+      "detail": "code=UpstreamTimeout"
+    },
+    {
+      "group": "A5",
+      "name": "降级文案不泄露内部异常",
+      "ok": true,
+      "detail": "服务暂时不可用，已为您转接人工客服，请稍后重试或留下联系方式"
+    },
+    {
+      "group": "A6",
+      "name": "同幂等键命中缓存",
+      "ok": true,
+      "detail": "run1=668a748069254133, run2=668a748069254133"
+    },
+    {
+      "group": "A6",
+      "name": "重复请求不重复建单",
+      "ok": true,
+      "detail": "tickets=1"
+    },
+    {
+      "group": "A6",
+      "name": "并发 6 路全部正常",
+      "ok": true,
+      "detail": "peak_in_flight=1"
+    },
+    {
+      "group": "A6",
+      "name": "并发闸超限返回过载",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A7",
+      "name": "提示注入被拒绝",
+      "ok": true,
+      "detail": "code=PROMPT_INJECTION"
+    },
+    {
+      "group": "A7",
+      "name": "超长消息被拒绝",
+      "ok": true,
+      "detail": "code=MESSAGE_TOO_LONG"
+    },
+    {
+      "group": "A7",
+      "name": "密钥与手机号被脱敏",
+      "ok": true,
+      "detail": "你的密钥 sk-*** 手机 138********"
+    },
+    {
+      "group": "A7",
+      "name": "白名单外工具被拦截",
+      "ok": true,
+      "detail": "[工具被拒绝] 工具 drop_table 不在白名单内"
+    },
+    {
+      "group": "A8",
+      "name": "/healthz 存活探针",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "group": "A8",
+      "name": "/readyz 就绪探针",
+      "ok": true,
+      "detail": "HTTP 200, body=ready"
+    },
+    {
+      "group": "A8",
+      "name": "/metrics 可采集",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "group": "A8",
+      "name": "POST /api/chat 正常",
+      "ok": true,
+      "detail": "run_id=e808c4f42a49416e"
+    },
+    {
+      "group": "A8",
+      "name": "响应带 X-Trace-Id",
+      "ok": true,
+      "detail": "eccf00d79871434c"
+    },
+    {
+      "group": "A8",
+      "name": "run 可回查且含 steps",
+      "ok": true,
+      "detail": "steps=1"
+    },
+    {
+      "group": "A8",
+      "name": "/api/stats 聚合可用",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A8",
+      "name": "鉴权：无 Token 401 / 有 Token 200",
+      "ok": true,
+      "detail": "401 / 200"
+    },
+    {
+      "group": "A8",
+      "name": "回归门禁检出工具调用退化",
+      "ok": true,
+      "detail": "baseline=1.00, current=0.00, gate=BLOCK"
+    },
+    {
+      "group": "A9",
+      "name": "中断遗留的 tool_calls 被补配对",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A9",
+      "name": "补配对操作幂等",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A9",
+      "name": "带污染历史的会话下一轮正常",
+      "ok": true,
+      "detail": "status=ok"
+    },
+    {
+      "group": "A9",
+      "name": "会话历史配对完整",
+      "ok": true,
+      "detail": "calls=2, tools=2"
+    },
+    {
+      "group": "A9",
+      "name": "字符预算生效（老轮被丢）",
+      "ok": true,
+      "detail": "messages 25 -> 9, user 轮 2"
+    },
+    {
+      "group": "A9",
+      "name": "预算裁剪不破坏配对",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A9",
+      "name": "超长工具结果截断进历史",
+      "ok": true,
+      "detail": "5000 -> 2021 字符"
+    },
+    {
+      "group": "A9",
+      "name": "短工具结果透传",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A9",
+      "name": "内存会话 TTL 淘汰（持锁跳过、释放补收）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "新控制器 idle 且无历史",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "run() 立即返回且执行器收敛",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "结果摘要与报告全文落库",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "failed 变多判回归并给出差值",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "历史按时间倒序",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "prod 拒绝启动且 catalog 给原因",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "running 期间再启动被互斥拒绝",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "报告文件可读且摘要正确",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "报告缺失时容错不崩",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A10",
+      "name": "close() 取消在途任务并复位",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "清单形状与只读边界",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "不泄露密钥",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "数据存储口径与 store 一致",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "核心交付物齐全",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "VERSION 缺失时回退内置版本号",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "命令清单覆盖五类交付动作",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "证据区：报告可读 + 落库历史可查",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "报告缺失时证据容错为零值",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "VERSION/CHANGELOG 存在时优先读取",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A11",
+      "name": "prod 环境同样只读可看",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "长文自动分块（每块 ≤400 字）",
+      "ok": true,
+      "detail": "chunks=5"
+    },
+    {
+      "group": "A12",
+      "name": "短文保持单块",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "BM25 检索命中且排序正确",
+      "ok": true,
+      "detail": "top=发票政策"
+    },
+    {
+      "group": "A12",
+      "name": "空查询与无关查询返回空且不崩",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "新工具进入白名单（共 7 个）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "search_kb 工具链路（调用/命中/落库）",
+      "ok": true,
+      "detail": "【知识命中 1】发票政策 · 相关度 0.288：电子发票在签收后 48 小时内自动开具，可在订单页下载。"
+    },
+    {
+      "group": "A12",
+      "name": "memory_save 落库且 kind 归一为 fact",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "memory_recall 命中并累计 hits",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "长期记忆每轮自动注入上下文",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "记忆清空后注入块同步消失",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "HTTP 知识库全链路（增查搜删 + 400 校验）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "HTTP 记忆全链路（chat 保存/查/删/清空）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A12",
+      "name": "meta 一致（M8 / 2.3.0 / 7 工具）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "token_map 映射（空/AUTH_TOKEN→leader/双令牌/真实令牌与 demo 并存）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "演示令牌仅 dev（prod 忽略）+ 角色排序 + 令牌掩码",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "identities 开启（3 身份 + demo_token 下发）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "whoami（客户令牌已认证 / 无令牌匿名 / 掩码预览）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "员工目录分级（客户 403 / 员工仅基本信息 / 领导含联系方式）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "客户门禁（stats/runs/history/kb 写/演练/评估 全 403）",
+      "ok": true,
+      "detail": "[403, 403, 403, 403, 403, 403]"
+    },
+    {
+      "group": "A13",
+      "name": "员工放行（stats/runs/演练/评估 200 + kb 写 200）",
+      "ok": true,
+      "detail": "[200, 200, 200, 200] kb=200"
+    },
+    {
+      "group": "A13",
+      "name": "客户对话不受限（chat 200）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "401（无令牌 / 未知令牌）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "meta 口径（M8 / 2.3.0 / auth_required=True）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "service_info 2.3.0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "开放模式兼容（匿名全权限 + identities 关闭 + meta False）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "A13",
+      "name": "prod 三令牌（demo 忽略 / 真实令牌分级生效）",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "note": "离线确定性验收；FakeLLM 数字不代表真实模型表现"
+}

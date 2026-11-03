@@ -1,0 +1,19 @@
+/* ===== M7 知识库与长期记忆（kb- 命名空间，不污染 M1 全局类） ===== */
+.kb-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:13px;padding:14px 16px;overflow:auto;flex:1;min-height:0}
+.kb-main{min-width:0;display:flex;flex-direction:column;gap:11px}
+.kb-side{min-width:0}
+.kb-form{display:flex;flex-direction:column;gap:8px}
+.kb-form textarea.field{resize:vertical;min-height:70px;font-family:inherit}
+.kb-actions{display:flex;gap:8px;align-items:center}
+.kb-search{display:flex;gap:8px;margin-bottom:9px}
+.kb-search .field{flex:1}
+.kb-results .kb-hit{padding:7px 10px;margin-bottom:7px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:6px}
+.kb-results .kb-hit .t{font-weight:600;font-size:12px}
+.kb-results .kb-hit .score{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px;color:var(--muted);margin-left:8px}
+.kb-results .kb-hit .chunk{font-size:11px;margin-top:4px;color:var(--muted);word-break:break-all}
+.kb-results .kb-miss{font-size:11px;color:var(--muted)}
+.kb-table .mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px}
+.kb-table .numcell{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;text-align:right}
+.kb-table td .btn{padding:2px 8px;font-size:10px}
+.kb-side .small{margin-top:8px;line-height:1.6}
+@media(max-width:980px){.kb-body{grid-template-columns:1fr}}

@@ -1,0 +1,6 @@
+# 运行时最小依赖：韧性/限流/指标全部用标准库实现，不引入额外包
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.0
+httpx>=0.24          # fastapi.testclient 验收脚本需要
+openai>=1.30         # 仅 LLM_BACKEND=deepseek 时需要

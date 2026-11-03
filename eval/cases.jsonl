@@ -1,0 +1,6 @@
+{"id":"C01","message":"怎么退货？","expect_tool":"search_faq"}
+{"id":"C02","message":"运费怎么算","expect_tool":"search_faq"}
+{"id":"C03","message":"订单 CS20261101007 到哪了","expect_tool":"lookup_order"}
+{"id":"C04","message":"查一下物流","expect_tool":"lookup_order"}
+{"id":"C05","message":"商品破损了要补发","expect_tool":"create_ticket"}
+{"id":"C06","message":"帮我建个工单","expect_tool":"create_ticket"}

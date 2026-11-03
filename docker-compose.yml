@@ -1,0 +1,26 @@
+services:
+  agent:
+    build: .
+    ports:
+      - "8010:8010"
+    environment:
+      APP_ENV: staging
+      LLM_BACKEND: fake
+      HOST: 0.0.0.0
+      PORT: 8010
+      DB_PATH: /app/data/prodagent.db
+      LOG_LEVEL: INFO
+      MAX_CONCURRENCY: 8
+      DAILY_BUDGET_CNY: 5
+    volumes:
+      - agent-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/healthz', timeout=2)"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  agent-data:

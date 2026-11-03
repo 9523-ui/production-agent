@@ -1,0 +1,15 @@
+.env
+*.db
+*.db-wal
+*.db-shm
+data/*.db
+data/*.json
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+dist/
+build/
+
+_koda_tmp/
+*.zip

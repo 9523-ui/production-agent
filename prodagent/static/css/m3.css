@@ -1,0 +1,29 @@
+/* ===== M3 运行历史与轨迹回放 ===== */
+.hist-body{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:13px;padding:14px 16px;overflow:auto;flex:1;min-height:0}
+.hist-main{min-width:0;display:flex;flex-direction:column;gap:11px}
+.hist-side{min-width:0;display:flex;flex-direction:column;gap:11px}
+.hist-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:end}
+.hist-filters .f{display:flex;flex-direction:column;gap:3px;min-width:0}
+.hist-filters label{font-size:10px;color:var(--muted)}
+.hist-filters select,.hist-filters input{width:100%;font-size:11px;padding:5px 7px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;outline:none;color:var(--text)}
+.hist-filters select:focus,.hist-filters input:focus{border-color:var(--accent)}
+.hist-actions{display:flex;gap:6px;flex-wrap:wrap}
+.hist-summary{font-size:11px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
+.hist-table{width:100%;border-collapse:collapse;font-size:11px}
+.hist-table th{text-align:left;padding:6px 7px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap}
+.hist-table td{padding:6px 7px;border-bottom:1px dashed var(--border);vertical-align:top}
+.hist-table tr.row:hover{background:var(--panel2);cursor:pointer}
+.hist-table tr.sel{background:var(--accent-soft)}
+.hist-table .msgcell{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hist-pager{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cmp-col{min-width:0}
+.cmp-h{font-size:10px;color:var(--muted);margin-bottom:5px;word-break:break-all}
+.cmp-row{display:flex;justify-content:space-between;gap:6px;padding:4px 0;border-bottom:1px dashed var(--border);font-size:10px}
+.cmp-row .k{color:var(--muted);flex-shrink:0}
+.cmp-row .v{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;text-align:right;word-break:break-all}
+.cmp-row.diff{background:var(--warn-soft);border-radius:4px;padding:4px 5px}
+.hist-step{border-left:2px solid var(--border);padding:5px 0 5px 9px;margin-left:4px;font-size:10px}
+.hist-step.bad{border-color:var(--err)}
+.hist-step .mono{font-size:10px}
+@media(max-width:980px){.hist-body{grid-template-columns:1fr}.hist-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}

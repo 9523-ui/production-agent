@@ -1,0 +1,26 @@
+/* ===== M5 评估回归面板 ===== */
+.eval-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:13px;padding:14px 16px;overflow:auto;flex:1;min-height:0}
+.eval-main{min-width:0;display:flex;flex-direction:column;gap:11px}
+.eval-side{min-width:0}
+.eval-score{display:flex;align-items:baseline;gap:10px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.eval-score .num{font-size:26px;font-weight:700}
+.eval-score .num.ok{color:var(--ok)}
+.eval-score .num.err{color:var(--err)}
+.eval-score .sub{font-size:11px;color:var(--muted)}
+.eval-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.eval-chips .chip{font-size:10px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:var(--panel2)}
+.eval-chips .chip.ok{border-color:var(--ok);color:var(--ok)}
+.eval-chips .chip.err{border-color:var(--err);color:var(--err);background:var(--err-soft)}
+.eval-failures{font-size:11px;max-height:180px;overflow:auto}
+.eval-failures .fail{padding:5px 0;border-bottom:1px dashed var(--border)}
+.eval-failures .fail .t{color:var(--err);font-weight:600}
+.eval-failures .fail .d{color:var(--muted);font-size:10px;margin-top:2px;word-break:break-all}
+.eval-output{font-size:10px;white-space:pre-wrap;word-break:break-all;max-height:150px;overflow:auto;color:var(--muted)}
+.eval-output.running{color:var(--warn)}
+.eval-table .numcell{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;white-space:nowrap}
+.eval-table .ok{color:var(--ok)}
+.eval-table .err{color:var(--err);font-weight:700}
+.eval-table .delta-neg{color:var(--err);font-weight:700}
+.eval-table .delta-pos{color:var(--ok)}
+.eval-table .delta-zero{color:var(--muted)}
+@media(max-width:980px){.eval-body{grid-template-columns:1fr}}

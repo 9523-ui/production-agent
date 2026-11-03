@@ -1,0 +1,33 @@
+/* ===== M8 身份与权限（规模化·角色鉴权）===== */
+/* 顶栏当前身份 pill + 身份面板布局。命名空间 ident- / role-switch，避免污染 M1 全局类。 */
+
+#roleCur { cursor: pointer; }
+#roleCur.on-customer { color: var(--warn, #b8860b); }
+#roleCur.on-anonymous { color: var(--muted, #888); }
+
+.ident-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 13px;
+  overflow: auto;
+  padding: 13px;
+}
+
+.role-switch { display: flex; gap: 8px; flex-wrap: wrap; }
+.role-switch .btn.active { outline: 2px solid var(--accent, #3b82f6); }
+
+#identWho .kvs { margin: 0; }
+#identWho .who-line { display: flex; gap: 8px; align-items: baseline; margin: 4px 0; }
+#identWho .who-line .k { min-width: 96px; }
+#identWho .token-mono { word-break: break-all; }
+
+.ident-table td, .ident-table th { padding: 6px 9px; }
+.ident-table .mono { white-space: nowrap; }
+.ident-table .allow { color: var(--ok, #2e7d32); }
+.ident-table .deny { color: var(--err, #c62828); }
+
+.ident-sec-hint { margin-top: 8px; }
+
+@media (max-width: 980px) {
+  .ident-body { grid-template-columns: 1fr; }
+}

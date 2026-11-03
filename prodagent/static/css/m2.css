@@ -1,0 +1,44 @@
+/* ===== M2 运行时状态面板 ===== */
+.dot.warn{background:var(--warn)}
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(12,16,22,.5);display:none;align-items:center;justify-content:center;padding:18px}
+.overlay.show{display:flex}
+.rt{width:min(1080px,100%);max-height:min(88vh,920px);background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 60px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden}
+.rt-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;flex-shrink:0}
+.rt-title{font-size:14px;font-weight:600}
+.rt-head .chk{white-space:nowrap}
+.rt-body{padding:14px 16px 18px;overflow:auto;display:flex;flex-direction:column;gap:13px}
+.rt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.rt-card{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:11px 12px;min-width:0}
+.rt-card .k{font-size:10px;color:var(--muted);letter-spacing:.04em}
+.rt-card .v{font-size:19px;font-weight:600;line-height:1.35;margin-top:3px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;word-break:break-all}
+.rt-card .sub{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.5}
+.rt-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:12px}
+.rt-sec{border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:0}
+.rt-sec>h3{margin:0;padding:9px 12px;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--panel2);border-bottom:1px solid var(--border);font-weight:600}
+.rt-sec .inner{padding:12px}
+.bar{height:7px;border-radius:4px;background:var(--code);overflow:hidden;margin-top:7px}
+.bar span{display:block;height:100%;background:var(--accent);transition:width .3s}
+.bar.warn span{background:var(--warn)}
+.bar.err span{background:var(--err)}
+.gauge{margin-bottom:12px}
+.gauge:last-child{margin-bottom:0}
+.gauge .lab{display:flex;justify-content:space-between;gap:8px;font-size:11px}
+.gauge .lab .mono{color:var(--muted)}
+.fsm{width:100%;height:168px;display:block}
+.fsm .node{fill:var(--panel2);stroke:var(--border);stroke-width:1.5}
+.fsm .node.active{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.2}
+.fsm .txt{fill:var(--text);font-size:11px;font-weight:600;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.fsm .mut{fill:var(--muted);font-size:9px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+.fsm .edge{stroke:var(--border);stroke-width:1.5;fill:none}
+.fsm .arrowhead{fill:var(--border)}
+.counter{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--border);font-size:11px}
+.counter:last-child{border-bottom:0}
+.counter .n{color:var(--muted)}
+.counter .val{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-weight:600}
+.kv-table{width:100%;border-collapse:collapse;font-size:11px}
+.kv-table td{padding:4px 6px;border-bottom:1px dashed var(--border)}
+.kv-table tr:last-child td{border-bottom:0}
+.kv-table td:first-child{color:var(--muted);width:54%}
+.kv-table td:last-child{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;text-align:right}
+.rt-foot{padding:9px 16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--muted);flex-wrap:wrap;flex-shrink:0}
+@media(max-width:900px){.rt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rt-cols{grid-template-columns:1fr}}
