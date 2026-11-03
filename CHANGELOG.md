@@ -9,6 +9,7 @@
 - 新端点：`GET /api/whoami`（身份自查）、`GET /api/auth/identities`（演示身份清单）、`GET /api/staff`（员工目录分级视图）。
 - 诚实边界：令牌为静态映射，无签发/续期/撤销；生产多副本应换短期 JWT + 网关，替换点是 `rbac.token_map()`。
 - 质量口径：离线验收 13 组 92 项、UI 冒烟 408 项，全部通过。
+- 文档：README 新增「界面预览」区，配 M1 / M2 / M3 / M5 / M7 / M8 六张真实运行截图（存于 `docs/screenshots/`）。
 
 ## 2.2.0（2026-11-03）
 

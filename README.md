@@ -14,6 +14,37 @@ ReAct 内核只是其中一层，真正的工作是它外面那三层运行时�
 
 在此之上按模块逐步接上**可视化控制台**（当前完成 M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8）。
 
+## 界面预览
+
+截图全部来自真实运行（`deepseek-chat` 后端 + 临时 SQLite），控制台左上角标注当前模块。
+入口统一在顶栏：运行时 / 运行历史 / 故障演练 / 评估 / 交付 / 知识 / 身份。
+
+**M1 对话工作台** — 多轮对话、工具轨迹时间线、快捷示例、幂等重放与注入拦截演示
+
+![M1 对话工作台](docs/screenshots/m1-chat.png)
+
+**M2 运行时状态** — 熔断三态状态机、日预算、并发闸、限流窗口、指标计数与 15 项配置快照（只读）
+
+![M2 运行时状态](docs/screenshots/m2-runtime.png)
+
+**M3 运行历史** — 7 项筛选 + 分页 + 单条轨迹回放 + 双条并排对比（差异高亮）
+
+![M3 运行历史](docs/screenshots/m3-history.png)
+
+**M5 评估回归** — 13 组 92 项一键复跑、92/92 通过、与上次基线做 Δ 回归判定、坏例阻塞
+
+![M5 评估回归](docs/screenshots/m5-eval.png)
+
+**M7 知识库与长期记忆** — 文档分块入库、BM25 检索预览、会话记忆自动注入（纯本地，无向量库）
+
+![M7 知识库与长期记忆](docs/screenshots/m7-kb.png)
+
+**M8 身份与权限** — 客户 / 员工 / 领导三身份，能力矩阵 + 员工目录分级（联系方式仅领导可见）
+
+![M8 身份与权限](docs/screenshots/m8-rbac.png)
+
+M4 故障演练台与 M6 交付视图未截图，界面说明见下文对应章节。
+
 ## 快速开始（零云 Key，全离线）
 
 ```bash
@@ -451,6 +482,8 @@ eval/
   cases.jsonl      回归用例
   run_acceptance.py 13 组 92 项验收（A9 上下文 / A10 评估面板 / A11 交付视图 / A12 知识与记忆 / A13 身份与权限）
   smoke_ui.py      M1–M8 界面与接口冒烟（408 项，含真跑一次验收子进程）
+docs/
+  screenshots/     M1 / M2 / M3 / M5 / M7 / M8 界面截图（2548×1402 PNG）
 Dockerfile / docker-compose.yml / .env.example / requirements.txt
 VERSION / CHANGELOG.md / README.md
 ```
